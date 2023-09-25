@@ -1,0 +1,23 @@
+syntax = "proto3";
+package price_settings.proto;
+
+
+message PriceSettingsInfoRequest{
+    string organisation = 1;
+}
+
+
+message PriceSettingsInfoResponse{
+    bool valid = 1;
+    string id = 2;
+    string currency = 3;
+    string price_symbol_position = 4;
+    string price_seperator = 5;
+    int64 no_of_decimals = 6;
+    bool cod_status = 7;
+}
+
+
+service PriceSettingsData {
+    rpc GetPriceSettings(PriceSettingsInfoRequest) returns (PriceSettingsInfoResponse) {}
+}
